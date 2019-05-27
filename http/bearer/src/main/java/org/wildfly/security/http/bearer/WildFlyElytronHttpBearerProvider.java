@@ -16,19 +16,18 @@
  * limitations under the License.
  */
 
-package org.wildfly.security;
+package org.wildfly.security.http.bearer;
 
 import java.security.Provider;
 
 import org.kohsuke.MetaInfServices;
+import org.wildfly.security.WildFlyElytronBaseProvider;
 
 /**
  * Provider for the HTTP Bearer authentication mechanism.
  *
  * @author <a href="mailto:fjuma@redhat.com">Farah Juma</a>
- * @deprecated use org.wildfly.security.http.bearer.WildFlyElytronHttpBearerProvider instead
  */
-@Deprecated
 @MetaInfServices(Provider.class)
 public final class WildFlyElytronHttpBearerProvider extends WildFlyElytronBaseProvider {
 

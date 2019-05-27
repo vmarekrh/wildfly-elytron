@@ -27,7 +27,9 @@ import org.kohsuke.MetaInfServices;
  * Provider for Digest implementations.
  *
  * @author <a href="mailto:fjuma@redhat.com">Farah Juma</a>
+ * @deprecated Use org.wildfly.security.digest.WildFlyElytronDigestProvider instead
  */
+@Deprecated
 @MetaInfServices(Provider.class)
 public final class WildFlyElytronDigestProvider extends WildFlyElytronBaseProvider {
 
@@ -39,7 +41,7 @@ public final class WildFlyElytronDigestProvider extends WildFlyElytronBaseProvid
      */
     public WildFlyElytronDigestProvider() {
         super("WildFlyElytronDigestProvider", "1.0", "WildFly Elytron Digest Provider");
-        putService(new Service(this, "MessageDigest", "SHA-512-256", "org.wildfly.security.digest.SHA512_256MessageDigest", Collections.emptyList(), Collections.emptyMap()));
+        putService(new Provider.Service(this, "MessageDigest", "SHA-512-256", "org.wildfly.security.digest.SHA512_256MessageDigest", Collections.emptyList(), Collections.emptyMap()));
     }
 
     /**

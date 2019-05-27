@@ -16,39 +16,38 @@
  * limitations under the License.
  */
 
-package org.wildfly.security;
+package org.wildfly.security.http.cert;
 
 import java.security.Provider;
 
 import org.kohsuke.MetaInfServices;
+import org.wildfly.security.WildFlyElytronBaseProvider;
 
 /**
- * Provider for the HTTP Bearer authentication mechanism.
+ * Provider for the HTTP CLIENT_CERT authentication mechanism.
  *
  * @author <a href="mailto:fjuma@redhat.com">Farah Juma</a>
- * @deprecated use org.wildfly.security.http.bearer.WildFlyElytronHttpBearerProvider instead
  */
-@Deprecated
 @MetaInfServices(Provider.class)
-public final class WildFlyElytronHttpBearerProvider extends WildFlyElytronBaseProvider {
+public final class WildFlyElytronHttpClientCertProvider extends WildFlyElytronBaseProvider {
 
-    private static final long serialVersionUID = -797775107834905210L;
-    private static WildFlyElytronHttpBearerProvider INSTANCE = new WildFlyElytronHttpBearerProvider();
+    private static final long serialVersionUID = -4105163673151031877L;
+    private static WildFlyElytronHttpClientCertProvider INSTANCE = new WildFlyElytronHttpClientCertProvider();
 
     /**
      * Construct a new instance.
      */
-    public WildFlyElytronHttpBearerProvider() {
-        super("WildFlyElytronHttpBearerProvider", "1.0", "WildFly Elytron HTTP Bearer Provider");
-        putService(new ProviderService(this, HTTP_SERVER_FACTORY_TYPE, "BEARER_TOKEN", "org.wildfly.security.http.bearer.BearerMechanismFactory", emptyList, emptyMap));
+    public WildFlyElytronHttpClientCertProvider() {
+        super("WildFlyElytronHttpClientCertProvider", "1.0", "WildFly Elytron HTTP CLIENT_CERT Provider");
+        putService(new ProviderService(this, HTTP_SERVER_FACTORY_TYPE, "CLIENT_CERT", "org.wildfly.security.http.cert.ClientCertMechanismFactory", emptyList, emptyMap));
     }
 
     /**
-     * Get the HTTP Bearer authentication mechanism provider instance.
+     * Get the HTTP CLIENT_CERT authentication mechanism provider instance.
      *
-     * @return the HTTP Bearer authentication mechanism provider instance
+     * @return the HTTP CLIENT_CERT authentication mechanism provider instance
      */
-    public static WildFlyElytronHttpBearerProvider getInstance() {
+    public static WildFlyElytronHttpClientCertProvider getInstance() {
         return INSTANCE;
     }
 
