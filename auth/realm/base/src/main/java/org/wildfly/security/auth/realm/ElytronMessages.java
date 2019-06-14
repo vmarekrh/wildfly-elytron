@@ -112,6 +112,9 @@ interface ElytronMessages extends BasicLogger {
     @Message(id = 1145, value = "Security realm [%s] must implement [%s]")
     IllegalArgumentException realmCacheUnexpectedType(SecurityRealm realm, Class<? extends CacheableSecurityRealm> expectedType);
 
+    @Message(id = 1146, value = "Authorization principal cannot be null after transformation")
+    IllegalStateException transformedPrincipalCannotBeNull();
+
     @Message(id = 1154, value = "Failed to read key store")
     RealmUnavailableException failedToReadKeyStore(@Cause KeyStoreException e);
 
